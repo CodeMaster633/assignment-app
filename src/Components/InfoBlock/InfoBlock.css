@@ -5,7 +5,13 @@
     display: flex;
     max-width: 60em;
     justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+}
 
+
+.infoBlock.mirrored{
+    flex-direction: row-reverse;
 }
 
 .textPart{
@@ -13,18 +19,14 @@
     padding: 1em;
     display: flex;
     flex-direction: column;
-    /* align-items: flex-start; */
     text-align: left;
-    max-width: 100%;
-
+    max-width: 45%;
 }
 
 .picturePart{
     display: flex;
-    margin-right: 3em;
-    margin-left: 3em;
-    max-width: 100%;
-
+    margin:auto;
+    max-width: 45%;
 }
 
 img{
@@ -39,3 +41,30 @@ h1 {
 h2 {
     color: red;
 }
+
+@media (max-width:640px){
+    .infoBlock{
+        padding:10px;
+        flex-direction: column;
+    }
+    .infoBlock.mirrored{
+        padding:10px;
+        flex-direction: column;
+    }
+    .textPart{
+        max-width: 90%;
+    }
+    .picturePart{
+        max-width: 90%;
+    }
+}
+
+@media (min-width:1024px){
+    .infoBlock{
+        flex-direction: row;
+    }
+    .infoBlock.mirrored{
+        flex-direction: row-reverse;
+    }
+}
+
