@@ -1,17 +1,28 @@
+.outerInfoBlock{
+    width: auto;
+    margin-top: 5em;
+}
+
 .infoBlock{
     margin:auto;
-    margin-top: 5em;
     padding: 1em;
     display: flex;
     max-width: 60em;
     justify-content: space-between;
     align-items: center;
     gap: 2em;
+    background-color: inherit;
 }
-
 
 .infoBlock.mirrored{
     flex-direction: row-reverse;
+}
+
+.outerInfoBlock.colored{
+    background-color: #580030;
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
+
 }
 
 .textPart{
@@ -21,6 +32,7 @@
     flex-direction: column;
     text-align: left;
     max-width: 45%;
+    background-color: inherit;
 }
 
 .picturePart{
@@ -36,10 +48,24 @@ img{
 
 h1 {
     color: purple;
+    background-color: inherit;
+}
+
+.outerInfoBlock.colored h1 {
+    color: #E6E1DE;
 }
 
 h2 {
     color: red;
+    background-color: inherit;
+}
+
+p{
+    background-color: inherit;
+}
+
+.outerInfoBlock.colored p {
+    color: #E6E1DE;
 }
 
 @media (max-width:640px){
@@ -67,4 +93,3 @@ h2 {
         flex-direction: row-reverse;
     }
 }
-

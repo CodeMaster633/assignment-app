@@ -20,8 +20,8 @@ function App() {
 
   return (
     <div className='main-container'>
-      <InfoBlock data={data[0]} mirrored={false}/>
-      <InfoBlock data={data[1]} mirrored={true}/>
+      <InfoBlock data={data[0]} />
+      <InfoBlock data={data[1]} mirrored={true} colored={true}/>
     </div>
   );
 }
