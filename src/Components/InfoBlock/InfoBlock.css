@@ -84,12 +84,3 @@ p{
         max-width: 90%;
     }
 }
-
-@media (min-width:1024px){
-    .infoBlock{
-        flex-direction: row;
-    }
-    .infoBlock.mirrored{
-        flex-direction: row-reverse;
-    }
-}
