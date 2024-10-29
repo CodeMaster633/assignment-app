@@ -1,26 +1,28 @@
 import { useState, useEffect } from 'react';
 
 function useFetchData(url) {
-    const [data, setData] = useState(null);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true); 
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`HTTP error - Status: ${response.status}`);
-                }
-                const result = await response.json();
-                setData(result);
-            } catch (error) {
-                console.log("Error: " +error.message)
-            } 
-        };
+  useEffect(() => {
+    setLoading(true); 
 
-        fetchData();
-    }, [url]);
+    fetch(url)
+      .then(response => response.json())
+      .then(json => {
+        
+          setData(json);
+          setLoading(false); 
+        
+      })
+      .catch(error => {
+        console.error("Fejl ved hentning af data: ", error);
+        setLoading(false); 
+      });
+      
+  }, [url]);
 
-    return { data};
+  return { data, loading }; 
 }
 
 export default useFetchData;
