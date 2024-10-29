@@ -1,8 +1,10 @@
+import { useEffect } from 'react';
 import './App.css';
 import InfoBlock from './Components/InfoBlock/Index'
+import useFetchData from './Hooks/useFetchData';
 
 function App() {
-  const data = [{
+  const spaceCatsData = [{
     headline:"Space Cat Adventures",
     tagline:"An epic cosmic journey",
     text:"Follow our brave space cat as it embarks on thrilling missions across the universe. From dodging asteroids to making"+ 
@@ -18,10 +20,24 @@ function App() {
   }
 ]
 
+const dadData = useFetchData('https://random.dog/woof.json?ref=apilist.fun')
+useEffect(() => {
+
+})
+console.log("Data fra API: ")
+console.log(dadData.data)
+
   return (
     <div className='main-container'>
-      <InfoBlock data={data[0]} />
-      <InfoBlock data={data[1]} mirrored={true} colored={true}/>
+      <InfoBlock data={spaceCatsData[0]} />
+      <InfoBlock data={spaceCatsData[1]} mirrored={true} colored={true}/>
+      {dadData && dadData.data ? (
+        <>
+          <p>{dadData.data.url}</p>
+          <img src={dadData.data.url} alt="Dog"/>
+        </>
+      ) : 
+      <p>Indlæser data...</p>}
     </div>
   );
 }
